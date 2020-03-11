@@ -2,7 +2,7 @@
 #can count up to 1000
 require "colorize"
 
-class Quiz
+class Quiz 
     def initialize(set)
         @set_of_quizzes = set
         @correct_answer = true
@@ -38,45 +38,6 @@ class Quiz
         return @correct_answer
     end
 end
-
-
-beginner_quizzes = [{
-  question_text: "If you bought 1 apple and 1 orange, how many pieces of fruit would you have?",
-  answer_value: 2
-  },
-  {question_text: "If you need 3 potatos, 2 broccoli and 4 zuchinni. What is the total number of items you added to your basket?",
-  answer_value: 9
-  },
-  {question_text: "The shopping list has asked for 6 bananas, but you have picked up a bunch with 8. How many bananas should you put back?",
-  answer_value: 2
-  },
-  {question_text:  "Now you need 1 loaf of bread, 2 broccoli and 3 mushrooms. What is the total number of items added to your basket?", answer_value: 6},
-  {question_text:  "If you bought 2 pears and 1 lemon, how many pieces of fruit would you have?", answer_value: 3},
-  {question_text:   "The shopping list has asked for 13 bananas, but you have picked up a bunch with 8. How many more bananas do you need?", answer_value: 5 
-  }]
-
-intermediate_quizzes = [{
-    question_text: "If you boughtdasadasd 1 apple and 1 orange, how many pieces of fruit would you have?",
-    answer_value: 2
-},
-{question_text: "If you need 3 adsdasdad, 2 broccoli and 4 zuchinni. What is the total number of items you added to your basket?",
-    answer_value: 9
-},
-{question_text: "The shopping adsasdasdasd has asked for 6 bananas, but you have picked up a bunch with 8. How many bananas should you put back?",
-    answer_value: 2
-}]
-
-bqs = Quiz.new(beginner_quizzes)
-bqs.ask_questions
-
-puts (bqs.correct_answer == true) ? "Congratulations you finished the level" : exit
-
-
-iqs = Quiz.new(intermediate_quizzes)
-iqs.ask_questions
-
-# iqs = Quiz.new(intermediate_quizzes)
-
 
 
    

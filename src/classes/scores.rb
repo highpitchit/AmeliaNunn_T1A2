@@ -1,7 +1,7 @@
-require_relative './Shopping_Trolley'
 
-class Scores < ShoppingTrolley
-    def initialize(user)
+
+class Scores
+    def initialize()
         @current_score = 0
         if (File.file?("./scores.csv"))
             @scores = csv.parse("./scores.csv")

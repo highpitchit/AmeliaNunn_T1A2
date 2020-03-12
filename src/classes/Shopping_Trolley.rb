@@ -1,3 +1,4 @@
+require_relative './scores'
 
 class ShoppingTrolley
     def initialize
@@ -6,7 +7,7 @@ class ShoppingTrolley
         @pastel = Pastel.new
         @prompt = TTY::Prompt.new
         @name = ""
-        @scores = new Scores
+        @scores = Scores.new
     end
 
     def welcome

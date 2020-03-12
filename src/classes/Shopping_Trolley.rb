@@ -125,10 +125,11 @@ class ShoppingTrolley
                 game_end = true 
             end
         end
-
-        @scores.set_score(game_score)
-        puts @scores.message
         
+        
+        @scores.set_score(game_score)
+        puts "Your score for this game was " + game_score
+
         puts "Would you like to begin the quiz again? (yes or no)"
         input = gets.chomp
         if (input.upcase == "yes".upcase or input.upcase == "y".upcase)

@@ -5,14 +5,17 @@ class ShoppingTrolley
         @font2 = TTY::Font.new(:starwars)
         @pastel = Pastel.new
         @prompt = TTY::Prompt.new
+        @name = ""
+        @scores = new Scores
     end
+
     def welcome
         puts @pastel.yellow(@font1.write("WELCOME TO THE SHOPPING TROLLEY GAME!"))   #Welcome to the shopping trolley game !
         
         puts "What is your name?".colorize(:blue)
         
-        name = gets.chomp
-        puts @pastel.magenta(@font2.write("Welcome     #{name} !"))
+        @name = gets.chomp
+        puts @pastel.magenta(@font2.write("Welcome     #{@name} !"))
         puts "What is your age?".colorize(:blue)
         age = gets.chomp.to_i
         puts (age <= 6 or age >= 12) ? 
@@ -32,6 +35,8 @@ class ShoppingTrolley
         input = @prompt.select("Which level would you like to start on?".colorize(:blue), levels)
         game_end = false
         level = levels.index(input)
+
+        game_score = 0
         
         until game_end == true do 
             case level
@@ -48,10 +53,10 @@ class ShoppingTrolley
                     }]
       
                 bqs = Quiz.new(beginner_quizzes)
-                bqs.ask_questions 
+                level_score += bqs.ask_questions 
                 
-                        #self.welcome
                 puts (bqs.correct_answer == true) ? @pastel.magenta(@font1.write("Congratulations you finished Level 1!!")) : passed == true
+                game_score += level_score * 200
                 level += 1
             when 1
                 intermediate_quizzes = [{
@@ -69,10 +74,10 @@ class ShoppingTrolley
                     }]
                 
                 iqs = Quiz.new(intermediate_quizzes)
-                iqs.ask_questions
-                #self.welcome
+                level_score = iqs.ask_questions
 
                 puts (iqs.correct_answer == true) ? "Congratulations you finished Level 2!!!".colorize(:magenta) : passed = true
+                game_score += level_score * 400
                 level += 1
             when 2
                 advanced_quizzes = [{
@@ -89,9 +94,10 @@ class ShoppingTrolley
                     {question_text:  "If 3 apples cost $2.17. What would this round to, to the nearest dollar?", answer_value: 2 
                     }]
                 aqs = Quiz.new(advanced_quizzes)
-                aqs.ask_questions   
-                self.welcome
+                level_score = aqs.ask_questions   
     
+                level +=1
+                game_score += level_score * 600
                 puts (aqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
             when 3
                 expert_quizzes = [{
@@ -109,7 +115,9 @@ class ShoppingTrolley
                     }]
                 
                 eqs = Quiz.new(expert_quizzes)
-                eqs.ask_questions  
+                level_score = eqs.ask_questions  
+                
+                game_score += level_score * 800
                 puts (eqs.correct_answer == true) ? "Congratulations you finished the level" : game_end = true 
             end
         end    

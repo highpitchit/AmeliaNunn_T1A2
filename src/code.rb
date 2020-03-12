@@ -1,6 +1,7 @@
 require "colorize"
 require "tty-prompt"
 require "tty-font"
+require "csv"
 require_relative "classes/quiz"
 require_relative "classes/Shopping_Trolley"
 

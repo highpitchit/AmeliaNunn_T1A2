@@ -80,7 +80,7 @@ class ShoppingTrolley
                 
                 iqs = Quiz.new(intermediate_quizzes)
                 iqs.ask_questions
-
+                
                 puts @pastel.magenta(@font1.write("Congratulations - Next Level!!"))
                 game_score += iqs.correct_answers * 400
                 level += 1
@@ -101,9 +101,9 @@ class ShoppingTrolley
                 aqs = Quiz.new(advanced_quizzes)
                 aqs.ask_questions   
     
-                level +=1
-                game_score += aqs.correct_answers * 600
                 puts @pastel.magenta(@font1.write("Congratulations - Next Level!!"))
+                game_score += aqs.correct_answers * 600
+                level +=1
             when 3
                 expert_quizzes = [{
                     question_text: "The apple costs $1.34 and the orange costs $0.66. How much money would you need ?", 

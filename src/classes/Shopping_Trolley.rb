@@ -16,23 +16,23 @@ class ShoppingTrolley
         puts "What is your age?".colorize(:blue)
         age = gets.chomp.to_i
         puts (age <= 6 or age >= 12) ? 
-        "This game is best suited if you're between 7 and 11 but would you like to play anyway? (yes or no)" 
-        : "Would you be able to help me at the supermarket? (yes or no)"
+        "This game is best suited if you're between 7 and 11 but would you like to play anyway? (yes or no)".colorize(:yellow) 
+        : "Would you be able to help me at the supermarket? (yes or no)".colorize(:blue)
       
         input = gets.chomp        
         if input.upcase == "yes".upcase or "y"
-            puts "Great! Let's get started!" 
+            puts "Great! Let's get started!".colorize(:blue) 
         else
-            puts "Thanks for playing, see you next time!" 
+            puts "Thanks for playing, see you next time!".colorize(:blue) 
             return
         end
         passed = false
     
         levels = ["Level 1", "Level 2", "Level 3", "Level 4"]
-        input = @prompt.select("Which level would you like to start on?", levels)
+        input = @prompt.select("Which level would you like to start on?".colorize(:blue), levels)
         game_end = false
         level = levels.index(input)
-
+        
         until game_end == true do 
             case level
             when 0
@@ -51,7 +51,7 @@ class ShoppingTrolley
                 bqs.ask_questions 
                 
                         #self.welcome
-                puts (bqs.correct_answer == true) ? "Congratulations you finished the level" : passed == true
+                puts (bqs.correct_answer == true) ? @pastel.magenta(@font1.write("Congratulations you finished Level 1!!")) : passed == true
                 level += 1
             when 1
                 intermediate_quizzes = [{
@@ -71,8 +71,8 @@ class ShoppingTrolley
                 iqs = Quiz.new(intermediate_quizzes)
                 iqs.ask_questions
                 #self.welcome
-    
-                puts (iqs.correct_answer == true) ? "Congratulations you finished the level !!!".colorize(:magenta) : passed = true
+
+                puts (iqs.correct_answer == true) ? "Congratulations you finished Level 2!!!".colorize(:magenta) : passed = true
                 level += 1
             when 2
                 advanced_quizzes = [{

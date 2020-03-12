@@ -8,7 +8,7 @@ class Scores
         if (File.file?("./scores.csv"))
             @scores = CSV.parse("./scores.csv")
         else
-            @score = CSV.parse("1,ben,0\n")
+            @scores = CSV.parse("1,ben,0\n")
         end
     end
 
@@ -19,9 +19,9 @@ class Scores
     end
 
     def set_score(score)
-        @current_score = score
+        @current_score = score.to_i()
 
-        @scores.push(@name + "," + @current_score)
+        @scores.push("user," + @current_score.to_s())
     end
 
     def message()

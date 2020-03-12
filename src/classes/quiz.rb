@@ -11,8 +11,9 @@ class Quiz
     def ask_questions()
         # puts random :question from @set_of_quizzes
         questions_answered = 0
+        correct_answers = 0
 
-        while (correct_answer and questions_answered < 3) do
+        while (questions_answered < 3) do
 
             random_number = @set_of_quizzes.to_a.sample()      #randomly select hash to use from beginner_quizzes and turns it to array
             z = [Hash[*random_number.flatten]]                  #changes random back to hash
@@ -24,17 +25,16 @@ class Quiz
             if (n2[0] == answer.to_i)
                 puts ("Correct").colorize(:yellow)
                 @set_of_quizzes.delete_if {|a| a[:question_text] == n1[0] }
+                correct_answers +=1
             else 
                 puts "Incorrect".colorize(:red)
-                @correct_answer = true
-                
             end
 
             questions_answered += 1
 
         end
 
-        return questions_answered
+        return correct_answers
     end
 
     def correct_answer

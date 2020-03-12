@@ -123,7 +123,10 @@ class ShoppingTrolley
                 puts (eqs.correct_answer == true) ? "Congratulations you finished the level":  passed = true 
                 game_end = true 
             end
-        end    
+        end
+
+        @scores.set_score(game_score)
+        puts @scores.message
     
         # if (input == "Level 1") 
             

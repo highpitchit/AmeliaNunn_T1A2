@@ -27,6 +27,7 @@ class Quiz
             else 
                 puts "Incorrect".colorize(:red)
                 @correct_answer = true
+                
             end
 
             questions_answered += 1

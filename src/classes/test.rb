@@ -1,7 +1,7 @@
 require 'test/unit'
 require_relative './quiz'
 
-class QuizTest < Test::Unit::TestCase
+class QuiTest < Test::Unit::TestCase
     def setup
         @customer = Customer.new('John', 'Smith')
     end

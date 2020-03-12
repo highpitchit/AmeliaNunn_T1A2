@@ -33,9 +33,9 @@ class ShoppingTrolley
         game_end = false
         level = levels.index(input)
 
-        until game_end = true do 
+        until game_end == true do 
             case level
-            when (0)
+            when 0
                 beginner_quizzes = [{
                     question_text: "If you bought 1 apple and 1 orange, how many pieces of fruit would you have?", answer_value: 2},
                     {question_text: "If you need 3 potatos, 2 broccoli and 4 zuchinni. What is the total number of items you added to your basket?", answer_value: 9},
@@ -131,8 +131,7 @@ class ShoppingTrolley
         if input == "yes".upcase or "y"
             self.welcome
         else
-            "Thanks for playing"
-            
+            exit
         end
     end
 end   

@@ -48,27 +48,31 @@ class ShoppingTrolley
                 }]
   
             bqs = Quiz.new(beginner_quizzes)
-            bqs.ask_questions
+            bqs.ask_questions 
 
             puts (bqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
         end
 
         if (input = "Level 2" or passed = true)
             intermediate_quizzes = [{
-                question_text: "If you boughtdasadasd 1 apple and 1 orange, how many pieces of fruit would you have?",
+                question_text: "If you have $20 and purchase cornflakes for $5, how much change would you receive", 
+                answer_value: 15},
+                {question_text: "Your shopping list requires two dozen eggs. How many eggs is this?",
+                answer_value: 24
+                },
+                {question_text: "You need 1/2 of a watermelon, but the supermarket has only 1/4 cut watermelon. How many 1/4 cut watermelon's should you purchase to make up 1/2?",
                 answer_value: 2
-            },
-            {question_text: "If you need 3 adsdasdad, 2 broccoli and 4 zuchinni. What is the total number of items you added to your basket?",
-                answer_value: 9
-            },
-            {question_text: "The shopping adsasdasdasd has asked for 6 bananas, but you have picked up a bunch with 8. How many bananas should you put back?",
-                answer_value: 2
-            }]
-  
+                },
+                {question_text:  "If you have $10 and purchase two bottles of milk for $4 each, how much change would you receive?", answer_value: 2},
+                {question_text:  "There are 20 people coming for lunch and you need breadrolls. The breadrolls come in a pack of six. 
+                                 If you are to give everyone a bread roll, how many packets should you buy?", answer_value: 3},
+                {question_text:  "You need to purchase two bunches of flowers at $15 each. If you have $50 how many dollars do you have left?", answer_value: 20 
+                }]
             
             iqs = Quiz.new(intermediate_quizzes)
             iqs.ask_questions
         end
-        
+
     end
 end
+

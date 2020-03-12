@@ -26,10 +26,10 @@ class Quiz
                 @set_of_quizzes.delete_if {|a| a[:question_text] == n1[0] }
             else 
                 puts "Incorrect".colorize(:red)
-                @correct_answer = false
+                @correct_answer = true
             end
 
-            questions_answered +=1
+            questions_answered += 1
 
         end
     end

@@ -1,17 +1,19 @@
 
 
+require "csv"
+
 class Scores
     def initialize()
         @current_score = 0
         if (File.file?("./scores.csv"))
-            @scores = csv.parse("./scores.csv")
+            @scores = CSV.parse("./scores.csv")
         else
-            @score = csv.parse("1," + @name + ",0\n")
+            @score = CSV.parse("1,ben,0\n")
         end
     end
 
     def write_scores()
-        csv.open("./score.csv", "wb") do |csv|
+        CSV.open("./score.csv", "wb") do |csv|
             csv << @scores
         end
     end

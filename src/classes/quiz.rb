@@ -8,7 +8,7 @@ class Quiz
         @correct_answer = true
     end
 
-    def ask_questions
+    def ask_questions()
         # puts random :question from @set_of_quizzes
         questions_answered = 0
 

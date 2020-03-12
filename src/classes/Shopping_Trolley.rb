@@ -38,6 +38,7 @@ class ShoppingTrolley
         level = levels.index(input)
 
         game_score = 0
+        level_score = 0
         
         until game_end == true do 
             case level
@@ -54,7 +55,7 @@ class ShoppingTrolley
                     }]
       
                 bqs = Quiz.new(beginner_quizzes)
-                level_score += bqs.ask_questions 
+                level_score += p bqs.ask_questions 
                 
                 puts (bqs.correct_answer == true) ? @pastel.magenta(@font1.write("Congratulations you finished Level 1!!")) : passed == true
                 game_score += level_score * 200
@@ -119,7 +120,8 @@ class ShoppingTrolley
                 level_score = eqs.ask_questions  
                 
                 game_score += level_score * 800
-                puts (eqs.correct_answer == true) ? "Congratulations you finished the level" : game_end = true 
+                puts (eqs.correct_answer == true) ? "Congratulations you finished the level":  passed = true 
+                game_end = true 
             end
         end    
     
@@ -135,9 +137,9 @@ class ShoppingTrolley
 
         # end
         
-        puts "Would you like to begin the quiz again?"
+        puts "Would you like to begin the quiz again? (yes or no)"
         input = gets.chomp
-        if input == "yes".upcase or "y"
+        if (input.upcase == "yes".upcase or input.upcase == "y".upcase)
             self.welcome
         else
             exit

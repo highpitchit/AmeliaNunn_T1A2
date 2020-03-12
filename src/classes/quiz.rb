@@ -5,13 +5,12 @@ require "colorize"
 class Quiz 
     def initialize(set)
         @set_of_quizzes = set
-        @correct_answer = true
+        @correct_answers = 0
     end
 
     def ask_questions()
         # puts random :question from @set_of_quizzes
         questions_answered = 0
-        correct_answers = 0
 
         while (questions_answered < 3) do
 
@@ -25,7 +24,7 @@ class Quiz
             if (n2[0] == answer.to_i)
                 puts ("Correct").colorize(:yellow)
                 @set_of_quizzes.delete_if {|a| a[:question_text] == n1[0] }
-                correct_answers +=1
+                @correct_answers +=1
             else 
                 puts "Incorrect".colorize(:red)
             end
@@ -33,12 +32,10 @@ class Quiz
             questions_answered += 1
 
         end
-
-        return correct_answers
     end
 
-    def correct_answer
-        return @correct_answer
+    def correct_answers
+        return @correct_answers
     end
 end
 

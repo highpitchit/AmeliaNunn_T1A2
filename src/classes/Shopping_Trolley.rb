@@ -55,10 +55,10 @@ class ShoppingTrolley
                     }]
       
                 bqs = Quiz.new(beginner_quizzes)
-                level_score += p bqs.ask_questions 
+                bqs.ask_questions 
                 
-                puts (bqs.correct_answer == true) ? @pastel.magenta(@font1.write("Congratulations you finished Level 1!!")) : passed == true
-                game_score += level_score * 200
+                puts @pastel.magenta(@font1.write("Congratulations you finished Level 1!!"))
+                game_score += bqs.correct_answers * 200
                 level += 1
             when 1
                 intermediate_quizzes = [{
@@ -76,10 +76,10 @@ class ShoppingTrolley
                     }]
                 
                 iqs = Quiz.new(intermediate_quizzes)
-                level_score = iqs.ask_questions
+                iqs.ask_questions
 
-                puts (iqs.correct_answer == true) ? "Congratulations you finished Level 2!!!".colorize(:magenta) : passed = true
-                game_score += level_score * 400
+                puts "Congratulations you finished Level 2!!!".colorize(:magenta)
+                game_score += iqs.correct_answers * 400
                 level += 1
             when 2
                 advanced_quizzes = [{
@@ -96,11 +96,11 @@ class ShoppingTrolley
                     {question_text:  "If 3 apples cost $2.17. What would this round to, to the nearest dollar?", answer_value: 2 
                     }]
                 aqs = Quiz.new(advanced_quizzes)
-                level_score = aqs.ask_questions   
+                aqs.ask_questions   
     
                 level +=1
-                game_score += level_score * 600
-                puts (aqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
+                game_score += aqs.correct_answers * 600
+                puts "Congratulations you finished the level"
             when 3
                 expert_quizzes = [{
                     question_text: "The apple costs $1.34 and the orange costs $0.55. How much money would you need ?", 
@@ -117,28 +117,16 @@ class ShoppingTrolley
                     }]
                 
                 eqs = Quiz.new(expert_quizzes)
-                level_score = eqs.ask_questions  
+                eqs.ask_questions
                 
-                game_score += level_score * 800
-                puts (eqs.correct_answer == true) ? "Congratulations you finished the level":  passed = true 
+                game_score += eqs.correct_answers * 800
+                puts "Congratulations you finished the level"
                 game_end = true 
             end
         end
 
         @scores.set_score(game_score)
         puts @scores.message
-    
-        # if (input == "Level 1") 
-            
-        # end 
-        # if (input == "Level 2" or passed == true)
-            
-        # elsif (input == "Level 3" or passed == true)
-            
-        # else (input == "Level 4" or passed == true)
-           
-
-        # end
         
         puts "Would you like to begin the quiz again? (yes or no)"
         input = gets.chomp

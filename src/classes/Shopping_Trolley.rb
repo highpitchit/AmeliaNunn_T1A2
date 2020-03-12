@@ -23,8 +23,6 @@ class ShoppingTrolley
         "This game is best suited if you're between 7 and 11 but would you like to play anyway? (yes or no)".colorize(:yellow) 
         : "Would you be able to help me at the supermarket? (yes or no)".colorize(:blue)
         
-        self.game
-
         input = gets.chomp        
         if (input.upcase == "yes".upcase or input.upcase == "y".upcase)
             puts "Great! Let's get started!".colorize(:blue) 
@@ -32,6 +30,7 @@ class ShoppingTrolley
             puts "Thanks for playing, see you next time!".colorize(:blue) 
             return
         end
+        self.game
     end 
     def game
         passed = false
@@ -61,7 +60,7 @@ class ShoppingTrolley
                 bqs = Quiz.new(beginner_quizzes)
                 bqs.ask_questions 
                 
-                puts @pastel.magenta(@font1.write("Congratulations you finished Level 1!!"))
+                puts @pastel.magenta(@font1.write("Congratulations - Next Level!!"))
                 game_score += bqs.correct_answers * 200
                 level += 1
             when 1
@@ -82,7 +81,7 @@ class ShoppingTrolley
                 iqs = Quiz.new(intermediate_quizzes)
                 iqs.ask_questions
 
-                puts "Congratulations you finished Level 2!!!".colorize(:magenta)
+                puts @pastel.magenta(@font1.write("Congratulations - Next Level!!"))
                 game_score += iqs.correct_answers * 400
                 level += 1
             when 2
@@ -104,19 +103,19 @@ class ShoppingTrolley
     
                 level +=1
                 game_score += aqs.correct_answers * 600
-                puts "Congratulations you finished the level"
+                puts @pastel.magenta(@font1.write("Congratulations - Next Level!!"))
             when 3
                 expert_quizzes = [{
-                    question_text: "The apple costs $1.34 and the orange costs $0.55. How much money would you need ?", 
-                    answer_value: 1.89},
-                    {question_text: "The beans costs $2.63 and the pineapple costs $3.25. How much money would you need ?",
-                    answer_value: 5.88
+                    question_text: "The apple costs $1.34 and the orange costs $0.66. How much money would you need ?", 
+                    answer_value: 2},
+                    {question_text: "The beans costs $2.65 and the pineapple costs $3.35. How much money would you need ?",
+                    answer_value: 6
                     },
                     {question_text: "There is a sale on toilet paper. If toilet paper is normally $20 but it is 50% off, how much would it cost?",
                     answer_value: 10
                     },
-                    {question_text:  "The juice costs $9.14 and the butter costs $3.13. How much money would you need ?", answer_value: 12.27},
-                    {question_text:  "There is a sale on ice cream. If the ice cream is normally $10 but it is 25% off, how much would it cost?", answer_value: 7.50},
+                    {question_text:  "The juice costs $9.14 and the butter costs $3.86. How much money would you need ?", answer_value: 13},
+                    {question_text:  "There is a sale on ice cream. If the ice cream is normally $12 but it is 25% off, how much would it cost?", answer_value: 9},
                     {question_text:  "Your total shop comes to $90 but since you are a member of the supermarket you receive 10% off. How much do you save?", answer_value: 9 
                     }]
                 
@@ -124,11 +123,10 @@ class ShoppingTrolley
                 eqs.ask_questions
                 
                 game_score += eqs.correct_answers * 800
-                puts "Congratulations you finished the level"
+                puts @pastel.magenta(@font1.write("Congratulations - You Finished the Gamel!!"))
                 game_end = true 
             end
         end
-        
         
         @scores.set_score(game_score)
         @scores.message
@@ -139,6 +137,7 @@ class ShoppingTrolley
         if (input.upcase == "yes".upcase or input.upcase == "y".upcase)
             self.game
         else
+            puts @font1.write("Thanks for playing - See you next time!")
             exit
         end
     end

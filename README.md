@@ -4,7 +4,7 @@
 
 ## 1.0  SOFTWARE DEVELOPMENT PLAN
 ---
-###Link to github
+git@github.com:highpitchit/AmeliaNunn_T1A2.git
 
 ## 1.1 PURPOSE AND SCOPE
 Basic mathematics is a fundamental life skill which is required to negoiate all facets of life. Getting a grasp on mathematics early in life has been proven to assist with problem solving, confidence and the ability to self learn. Mathematics is best learnt from practicing and the idea of implementing the game within a supermarket will give the player practice they can relate to in the real world. 
@@ -33,26 +33,29 @@ The game has four levels where the user can pick which level they would like to 
 The game uses a random question generator('rqg') which loops through the level's questions three times before moving onto the next level. Each question and associated answer is located within a hash in an array. Every level has its own array with 6 hashes containing two keys and values for the questions and answers. Hence the random question generator sorts through the levels question/answer array and outputs the question. The user then enters their answer and they will be told whether they are correct or incorrect. The loop will then use the rqg until three questions have been asked. 
 To assure the questions are not repeated within the level, an additional function was used in the loop "delete_if" which temporarily deletes the question in the loop so that no question is repeated.
 
-#### 3. Feature # 3
+#### Feature 3 - High Score generator
+The 
+
+## 1.3 GEMS
 
 
 
-## 1.3 OUTLINE OF USER INTERACTION AND EXPERIENCE
+## 1.4 OUTLINE OF USER INTERACTION AND EXPERIENCE
 Once the user has entered the game, the user will be prompted to enter their name. The game then welcomes them to the game and requests their age. If they are within the age range of 7 to 11 they will then continue on to select the level they wish to play. If they are outside the age range then they will be asked whether they wish to continue or not. If they don't want to continue the game will end but if they do want to continue they will be prompted to select the level they wish to start on. Selecting the level is completed with the use of the up and down arrows followed by enter. 
 
 - how the user will interact with / use each feature
 - how errors will be handled by the application and displayed to the user
 
-## 1.4 DIAGRAM OF CONTROL FLOW
+## 1.5 DIAGRAM OF CONTROL FLOW
 
 
-## 1.5 DEVELOP IMPLEMENTATION PLAN
+## 1.6 DEVELOP IMPLEMENTATION PLAN
 
 The implementation plan was developed in Trello using the Assignment 2 - Terminal App criteria sheet and the associated rubric. Each requirement of the criteria sheet was given a card wih a due date and checklist of items that will ensure the task is complete. The associated rubric information for the highest mark was also added onto each applicable card. Four lists were made up on the Trello board ~ Documentation, Code, Doing and Done. The board can be seen below.
 
 [Open Implementation Plan](https://trello.com/b/lYBl4SWz/amelianunnt1a2)
 
-## 1.6 HELP DOCUMENTATION
+## 1.7 HELP DOCUMENTATION
 - how to install documentation
 - any dependencies required by the application to operatre
     gems?

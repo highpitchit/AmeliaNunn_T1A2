@@ -72,7 +72,7 @@ class ShoppingTrolley
                 iqs.ask_questions
                 #self.welcome
     
-                puts (iqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
+                puts (iqs.correct_answer == true) ? "Congratulations you finished the level !!!".colorize(:magenta) : passed = true
                 level += 1
             when 2
                 advanced_quizzes = [{

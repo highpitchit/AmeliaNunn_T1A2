@@ -24,12 +24,13 @@ class ShoppingTrolley
         : "Would you be able to help me at the supermarket? (yes or no)".colorize(:blue)
       
         input = gets.chomp        
-        if input.upcase == "yes".upcase or "y"
+        if (input.upcase == "yes".upcase or input.upcase == "y".upcase)
             puts "Great! Let's get started!".colorize(:blue) 
         else
             puts "Thanks for playing, see you next time!".colorize(:blue) 
             return
         end
+
         passed = false
     
         levels = ["Level 1", "Level 2", "Level 3", "Level 4"]

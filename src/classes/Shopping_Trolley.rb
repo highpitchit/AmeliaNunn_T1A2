@@ -17,7 +17,6 @@ class ShoppingTrolley
         puts (age <= 6 or age >= 12) ? 
         "This game is best suited if you're between 7 and 11 but would you like to play anyway? (yes or no)" 
         : "Would you be able to help me at the supermarket? (yes or no)"
-
       
         input = gets.chomp        
         if input.upcase == "yes".upcase
@@ -31,7 +30,7 @@ class ShoppingTrolley
         levels = ["Level 1", "Level 2", "Level 3", "Level 4"]
         input = @prompt.select("Which level would you like to start on?", levels)
 
-        if (input = "Level 1") 
+        if (input == "Level 1") 
             beginner_quizzes = [{
                 question_text: "If you bought 1 apple and 1 orange, how many pieces of fruit would you have?",
                 answer_value: 2
@@ -51,9 +50,8 @@ class ShoppingTrolley
             bqs.ask_questions 
 
             puts (bqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
-        end
 
-        if (input = "Level 2" or passed = true)
+        elsif (input == "Level 2" or passed = true)
             intermediate_quizzes = [{
                 question_text: "If you have $20 and purchase cornflakes for $5, how much change would you receive", 
                 answer_value: 15},
@@ -64,13 +62,53 @@ class ShoppingTrolley
                 answer_value: 2
                 },
                 {question_text:  "If you have $10 and purchase two bottles of milk for $4 each, how much change would you receive?", answer_value: 2},
-                {question_text:  "There are 20 people coming for lunch and you need breadrolls. The breadrolls come in a pack of six. 
-                                 If you are to give everyone a bread roll, how many packets should you buy?", answer_value: 3},
+                {question_text:  "There are 20 people coming for lunch and you need breadrolls. The breadrolls come in a pack of six. If you are to give everyone a bread roll, how many packets should you buy?", answer_value: 3},
                 {question_text:  "You need to purchase two bunches of flowers at $15 each. If you have $50 how many dollars do you have left?", answer_value: 20 
                 }]
             
             iqs = Quiz.new(intermediate_quizzes)
             iqs.ask_questions
+
+            puts (iqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
+        
+        elsif (input == "Level 3" or passed = true)
+            advanced_quizzes = [{
+                question_text: "You're picking up items for two recipes, one recipe requires 1 1/2 oranges and the other recipe requires 3 1/2 oranges. What is the total number of oranges you need?", 
+                answer_value: 5},
+                {question_text: "You're picking up items for three recipes, one recipe requires  1 1/4 pumpkin, the other recipe requires 1/4 pumpkin and the other recipe requires 2 1/2 pumpkins. What is the total number of pumpkins you need??",
+                answer_value: 4 
+                },
+                {question_text: "If 2kgs of bananas cost $8.98. What would this round to, to the nearest dollar?",
+                answer_value: 9
+                },
+                {question_text:  "If 5kgs of rice cost $24.67. What would this round to, to the nearest dollar?", answer_value: 25},
+                {question_text:  "You're picking up items for two recipes, one recipe requires 5 1/2 cups of flour and the other recipe requires 6 1/2 cups of flour. How many cups of flour do you need?", answer_value: 12},
+                {question_text:  "If 3 apples cost $2.17. What would this round to, to the nearest dollar?", answer_value: 2 
+                }]
+            aqs = Quiz.new(advanced_quizzes)
+            aqs.ask_questions   
+
+            puts (iqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
+
+        else (input == "Level 4" or passed = true)
+            expert_quizzes = [{
+                question_text: "The apple costs $1.34 and the orange costs $0.55. How much change would you receive from $5", 
+                answer_value: 1.89},
+                {question_text: "",
+                answer_value: 24
+                },
+                {question_text: "",
+                answer_value: 2
+                },
+                {question_text:  "", answer_value: 2},
+                {question_text:  "", answer_value: 3},
+                {question_text:  "", answer_value: 20 
+                }]
+            
+            eqs = Quiz.new(expert_quizzes)
+            eqs.ask_questions   
+
+
         end
 
     end

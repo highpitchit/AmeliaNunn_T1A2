@@ -22,7 +22,9 @@ class ShoppingTrolley
         puts (age <= 6 or age >= 12) ? 
         "This game is best suited if you're between 7 and 11 but would you like to play anyway? (yes or no)".colorize(:yellow) 
         : "Would you be able to help me at the supermarket? (yes or no)".colorize(:blue)
-      
+        
+        self.game
+
         input = gets.chomp        
         if (input.upcase == "yes".upcase or input.upcase == "y".upcase)
             puts "Great! Let's get started!".colorize(:blue) 
@@ -30,7 +32,8 @@ class ShoppingTrolley
             puts "Thanks for playing, see you next time!".colorize(:blue) 
             return
         end
-
+    end 
+    def game
         passed = false
     
         levels = ["Level 1", "Level 2", "Level 3", "Level 4"]
@@ -128,12 +131,13 @@ class ShoppingTrolley
         
         
         @scores.set_score(game_score)
-        puts "Your score for this game was " + game_score
+        @scores.message
+        puts "Your score for this game was " + game_score.to_s
 
         puts "Would you like to begin the quiz again? (yes or no)"
         input = gets.chomp
         if (input.upcase == "yes".upcase or input.upcase == "y".upcase)
-            self.welcome
+            self.game
         else
             exit
         end

@@ -69,9 +69,9 @@ class ShoppingTrolley
             iqs = Quiz.new(intermediate_quizzes)
             iqs.ask_questions
 
-            puts (iqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
+            # puts (iqs.correct_answer == true) ? "Congratulations you finished the level" : passed = true
         
-        elsif (input == "Level 3" or passed = true)
+        elsif (input == "Level 3" or passed == true)
             advanced_quizzes = [{
                 question_text: "You're picking up items for two recipes, one recipe requires 1 1/2 oranges and the other recipe requires 3 1/2 oranges. What is the total number of oranges you need?", 
                 answer_value: 5},
@@ -92,17 +92,17 @@ class ShoppingTrolley
 
         else (input == "Level 4" or passed = true)
             expert_quizzes = [{
-                question_text: "The apple costs $1.34 and the orange costs $0.55. How much change would you receive from $5", 
+                question_text: "The apple costs $1.34 and the orange costs $0.55. How much money would you need ?", 
                 answer_value: 1.89},
-                {question_text: "",
-                answer_value: 24
+                {question_text: "The beans costs $2.63 and the pineapple costs $3.25. How much money would you need ?",
+                answer_value: 5.88
                 },
-                {question_text: "",
-                answer_value: 2
+                {question_text: "There is a sale on toilet paper. If toilet paper is normally $20 but it is 50% off, how much would it cost?",
+                answer_value: 10
                 },
-                {question_text:  "", answer_value: 2},
-                {question_text:  "", answer_value: 3},
-                {question_text:  "", answer_value: 20 
+                {question_text:  "The juice costs $9.14 and the butter costs $3.13. How much money would you need ?", answer_value: 12.27},
+                {question_text:  "There is a sale on ice cream. If the ice cream is normally $10 but it is 25% off, how much would it cost?", answer_value: 7.50},
+                {question_text:  "Your total shop comes to $90 but since you are a member of the supermarket you receive 10% off. How much do you save?", answer_value: 9 
                 }]
             
             eqs = Quiz.new(expert_quizzes)

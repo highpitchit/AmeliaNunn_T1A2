@@ -1,6 +1,6 @@
 # TERMINAL APPLICATION
 
-## + - / x Shopping Trolley x / - +
+## + - / x Shopping Trolley Game x / - +
 
 ## 1.0  SOFTWARE DEVELOPMENT PLAN
 ---
@@ -58,8 +58,12 @@ Four gems were used in the development of the application, these were;
 
 ## 1.4 OUTLINE OF USER INTERACTION AND EXPERIENCE
 Once the user has entered the game, the user will be prompted to enter their name. The game then welcomes them to the game and requests their age. If they are within the age range of 7 to 11 they will then continue on to select the level they wish to play. If they are outside the age range then they will be asked whether they wish to continue or not. If they don't want to continue the game will end but if they do want to continue they will be prompted to select the level they wish to start on. Selecting the level is completed with the use of the up and down arrows followed by enter. Once they are in the level the rqg will output a question to the screen which requires the user to provide an answer. If they provide the correct answer they will receive "Correct" else if they answer wrong they will receive "Incorrect". The game only take integers as answers but if the user used a string or alphanumeric character as an answer they would simply receive "Incorrect" and the game would continue. Hence by allowing multiple data types as possible answers the user will receive "Incorrect" if an error in the answer is found. Another part of handling errors which could occur is if user enters age <=6 or => 12. However, by using an if statement this error is caught by the option to continue anyway if they don't fulfill the age requirement. 
-For each level, three questions are required to be answered before moving on to the next level.Once they have completed Level 4 they will be told their final score followed by their ranking. They then have the choice to continue playing or 
+For each level, three questions are required to be answered before moving on to the next level.Once they have completed Level 4 they will be told their final score followed by their ranking. They then have the choice to play again or end the game.
+### Testing
 
+Two tests were designed to check the functionality of the code. 
+1. The first test checks the initial starting score is zero. 
+2. The second test checks that the highest score ranking is the correct ordinal number.
 
 
 ## 1.5 DIAGRAM OF CONTROL FLOW
@@ -80,20 +84,22 @@ The implementation plan was developed in Trello using the Assignment 2 - Termina
 
 ### How to install
 
-- how to install documentation
-- any dependencies required by the application to operatre
-    gems?
-- any system/hardware requirements
-ie suitable ruby interpreter
+To run this application, 
+1. Download the package and unzip the file to a directory;
+2. Open Terminal window and navigate to the folder containing "ShoppingTrolley.sh"
+3. Type in ./ShoppingTrolley.sh and hit enter
+4. This will load the application
 
-How to install:
-Run ruby ./code.rb
+The hardware and system requirements to run the progra are:
 
-Ruby 7.0
-MacOS
+Software and Dependencies required:
+- Ruby >2.0.0
+- MacOS or UNIX based operating system
+- Gems installed with run script:   
+csv | colorize | tty-prompt | tty-font
 
-
-# Extra
-
-Marking 
-- use ruby style guide on git hub
+Recommended Hardware (PC/server):
+- 64-bit architecture
+- 2+ cores at 1GHz or greater
+- 4Gb RAM
+- 10Gb Disk Space

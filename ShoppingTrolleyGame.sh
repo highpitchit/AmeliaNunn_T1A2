@@ -1,2 +1,2 @@
 bundle install
-ruby ./code.rb
+ruby ./src/code.rb

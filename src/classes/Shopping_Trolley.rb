@@ -11,27 +11,29 @@ class ShoppingTrolley
     end
 
     def welcome
+       
         puts @pastel.yellow(@font1.write("WELCOME TO THE SHOPPING TROLLEY GAME!"))   #Welcome to the shopping trolley game !
-        
-        puts "What is your name?".colorize(:blue)
-        
-        @name = gets.chomp
-        puts @pastel.magenta(@font2.write("Welcome     #{@name} !"))
+            puts "What is your name?".colorize(:blue)
+            @name = gets.chomp
+            puts @pastel.magenta(@font2.write("Welcome     #{@name} !"))
+            
+    
+
         puts "What is your age?".colorize(:blue)
         age = gets.chomp.to_i
-        puts (age <= 6 or age >= 12) ? 
+        puts (age <= 6 or age >= 12) ?                                              
         "This game is best suited if you're between 7 and 11 but would you like to play anyway? (yes or no)".colorize(:yellow) 
-        : "Would you be able to help me at the supermarket? (yes or no)".colorize(:blue)
+        : "Would you be able to help me at the supermarket? (yes or no)".colorize(:blue)            #exception handled by if statement
         
         input = gets.chomp        
         if (input.upcase == "yes".upcase or input.upcase == "y".upcase)
             puts "Great! Let's get started!".colorize(:blue) 
         else
-            puts "Thanks for playing, see you next time!".colorize(:blue) 
+            puts "Thanks for playing, SEE YOU NEXT TIME!".colorize(:blue) 
             return
         end
         self.game
-    end 
+    end
     def game
         passed = false
     

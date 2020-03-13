@@ -21,7 +21,7 @@ class Quiz
                 n2 = z.map {|x| x.values[1]}       #generates the corresponding answer
             answer = gets.chomp
 
-            if (n2[0] == answer.to_i)
+            if (n2[0] == answer.to_f)
                 puts ("Correct").colorize(:yellow)
                 @set_of_quizzes.delete_if {|a| a[:question_text] == n1[0] }
                 @correct_answers +=1

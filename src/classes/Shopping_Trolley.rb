@@ -17,8 +17,6 @@ class ShoppingTrolley
             @name = gets.chomp
             puts @pastel.magenta(@font2.write("Welcome     #{@name} !"))
             
-    
-
         puts "What is your age?".colorize(:blue)
         age = gets.chomp.to_i
         puts (age <= 6 or age >= 12) ?                                              
